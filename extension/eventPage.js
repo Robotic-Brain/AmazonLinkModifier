@@ -34,6 +34,9 @@ var wantedParameters = {
  * @return object           key/value map of GET parameters
  */
 function strToMap(params) {
+    if ((typeof params) !== "string") {
+	return {};
+    }
     var pairs = params.split("&");
     var result = {};
     for (var i=0; i < pairs.length; ++i) {
@@ -72,7 +75,7 @@ function mapToStr(params) {
  * @return bool            true if url looks good
  */
 function checkIfDone(params, wanted) {
-    for (var key in wantedParameters) {
+    for (var key in wanted) {
 	if (params[key] !== wanted[key]) {
 	    return false;
 	}
@@ -95,7 +98,7 @@ function checkRedirection(url) {
 	    params[key] = wantedParameters[key];
 	}
 	var newUrl = urlParts[0] + "?" + mapToStr(params);
-	//return newUrl;
+	return newUrl;
     }
     
     return false;

@@ -110,10 +110,53 @@ function TestMapToStr() {
     assert(strToMap(mapToStr(val)), val);
 }
 
+function TestCheckIfDone() {
+    var wanted = {
+	"test": "lol",
+	"foo": "bar"
+    };
+    var params = {
+	"test": "lol",
+	"foo": "bar"
+    };
+    assert(checkIfDone(params, wanted), true);
+    wanted["extra"] = "new";
+    assert(checkIfDone(params, wanted), false);
+}
+
+function TestCheckRedirection() {
+    var testData = [
+	["http://www.amazon.de/", "http://www.amazon.de/?tag=sempervideo-21"],
+	["https://www.amazon.de/", "https://www.amazon.de/?tag=sempervideo-21"],
+	["http://www.amazon.com/", "http://www.amazon.com/?tag=sempervideo-21"],
+	["https://www.amazon.com/", "https://www.amazon.com/?tag=sempervideo-21"],
+	
+	["http://www.amazon.de/test", "http://www.amazon.de/test?tag=sempervideo-21"],
+	["https://www.amazon.de/test", "https://www.amazon.de/test?tag=sempervideo-21"],
+	["http://www.amazon.com/test", "http://www.amazon.com/test?tag=sempervideo-21"],
+	["https://www.amazon.com/test", "https://www.amazon.com/test?tag=sempervideo-21"],
+	
+	["http://www.amazon.de/blub?tag=false", "http://www.amazon.de/blub?tag=sempervideo-21"],
+	["https://www.amazon.de/blub?tag=false", "https://www.amazon.de/blub?tag=sempervideo-21"],
+	["http://www.amazon.com/blub?tag=false", "http://www.amazon.com/blub?tag=sempervideo-21"],
+	["https://www.amazon.com/blub?tag=false", "https://www.amazon.com/blub?tag=sempervideo-21"],
+
+	["http://www.amazon.de/blub?something=fo&tag=false", "http://www.amazon.de/blub?something=fo&tag=sempervideo-21"],
+	["https://www.amazon.de/blub?something=fo&tag=false", "https://www.amazon.de/blub?something=fo&tag=sempervideo-21"],
+	["http://www.amazon.com/blub?something=fo&tag=false", "http://www.amazon.com/blub?something=fo&tag=sempervideo-21"],
+	["https://www.amazon.com/blub?something=fo&tag=false", "https://www.amazon.com/blub?something=fo&tag=sempervideo-21"],
+    ];
+    for (var i=0; i < testData.length; ++i) {
+	assert(checkRedirection(testData[i][0]), testData[i][1]);
+    }
+}
+
 function main() {
     //SelfTest();
     TestStrToMap();
     TestMapToStr();
+    TestCheckIfDone();
+    TestCheckRedirection();
 }
 
 window.onload = function(){main();};
