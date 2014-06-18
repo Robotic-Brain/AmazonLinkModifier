@@ -16,6 +16,9 @@
     ],
     "background": {
 	"persistent": true,
-	"scripts": ["eventPage.js"]
+	"scripts": [
+	    "eventPage.js",
+	    "unitTest.js"
+	]
     }
 }
