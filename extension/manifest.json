@@ -1,0 +1,21 @@
+{
+    "manifest_version": 2,
+    "version": "0.0.1",
+    
+    "name": "SemperVideo",
+    "description": "Support Sempervideo",
+    "author": "Robotic-Brain",
+    "homepage_url": "http://roboticbrain.de",
+    
+    "default_locale": "de",
+    
+    "permissions": [
+	"webRequest",
+	"webRequestBlocking",
+	"*://*.amazon.de/*",
+    ],
+    "background": {
+	"persistent": false,
+	"scripts": ["eventPage.js"]
+    },
+}
