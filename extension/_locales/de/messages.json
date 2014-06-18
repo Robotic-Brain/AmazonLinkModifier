@@ -1,0 +1,10 @@
+{
+    "extName": {
+	"description": "Extension name.",
+	"message": "SemperVideo Amazon Addon"
+    },
+    "extDescription": {
+	"description": "Extension description.",
+	"message": "Mit dieser Erweiterung unterstützen sie SemperVideo bei jedem Einkauf auf Amazon."
+    }
+}
