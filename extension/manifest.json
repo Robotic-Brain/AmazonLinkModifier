@@ -12,6 +12,7 @@
     "permissions": [
 	"webRequest",
 	"webRequestBlocking",
+	"*://*.amazon.com/*",
 	"*://*.amazon.de/*"
     ],
     "background": {
