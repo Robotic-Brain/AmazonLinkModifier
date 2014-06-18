@@ -12,10 +12,10 @@
     "permissions": [
 	"webRequest",
 	"webRequestBlocking",
-	"*://*.amazon.de/*",
+	"*://*.amazon.de/*"
     ],
     "background": {
-	"persistent": false,
+	"persistent": true,
 	"scripts": ["eventPage.js"]
-    },
+    }
 }
