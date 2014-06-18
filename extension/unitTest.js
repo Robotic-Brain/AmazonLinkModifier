@@ -94,7 +94,7 @@ function TestMapToStr() {
 }
 
 function main() {
-    SelfTest();
+    //SelfTest();
     TestStrToMap();
     TestMapToStr();
 }
