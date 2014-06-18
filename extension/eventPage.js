@@ -1,5 +1,18 @@
 /**
- * License...
+   Copyright (C) 2014  Robotic-Brain <chrome-ext@roboticbrain.de
+   
+   This program is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+   
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+   
+   You should have received a copy of the GNU General Public License
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 /* TODO: This is not actually an event page since chrome does not support it
@@ -45,6 +58,7 @@ function mapToStr(params) {
 	    result += "&";
 	}
 	result += key + "=" + params[key];
+	first = false;
     }
     return result;
 }
@@ -54,11 +68,12 @@ function mapToStr(params) {
  * and checks if params contains what we want
  *
  * @param object params    parameter part of url in key/value pairs
+ * @param object wanted    wanted url parameters
  * @return bool            true if url looks good
  */
-function checkIfDone(params) {
+function checkIfDone(params, wanted) {
     for (var key in wantedParameters) {
-	if (params[key] !== wantedParameters[key]) {
+	if (params[key] !== wanted[key]) {
 	    return false;
 	}
     }
@@ -75,7 +90,7 @@ function checkIfDone(params) {
 function checkRedirection(url) {
     var urlParts = url.split("?", 2);
     var params = strToMap(urlParts[1]);
-    if (!checkIfDone(params)) {
+    if (!checkIfDone(params, wantedParameters)) {
 	for (var key in wantedParameters) {
 	    params[key] = wantedParameters[key];
 	}
