@@ -107,7 +107,7 @@ function checkRedirection(url) {
 /**
  * Register the event handlers
  */
-var filter = {urls: ["<all_urls>"]};   /* urls already filtered by manifest.json */
+var filter = {urls: ["*://*/*"]};   /* urls already filtered by manifest.json */
 chrome.webRequest.onBeforeRequest.addListener(
     function(args) {
 	var result = checkRedirection(args.url);
