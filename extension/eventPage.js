@@ -119,9 +119,30 @@ chrome.webRequest.onBeforeRequest.addListener(
     ["blocking"]
 );
 
+/**
+ * Notify the user on extension conflicts
+ */
 chrome.webRequest.onErrorOccurred.addListener(
-    function(e) {
-	console.log(e);
+    function(err) {
+	chrome.notifications.create(
+	    "semperVideoError",
+	    {
+		"type": "basic",
+		"title": chrome.i18n.getMessage("notificationTitle"),
+		"message": chrome.i18n.getMessage("notificationMessage"),
+		"iconUrl": "icons/klappe128.png"
+	    },
+	    function(id){}
+	);
     },
     filter
+);
+
+/**
+ * Clear our Notification when done
+ */
+chrome.notifications.onClosed.addListener(
+    function(id, byUser){
+	chrome.notifications.clear(id, function(cleared){});
+    }
 );
