@@ -131,6 +131,7 @@ function onBeforeRequestHandler(args) {
  * some other mechanism must have overwriten our redirect
  */
 function onBeforeRedirectHandler(args) {
+    if (args.statusCode < 0) {    // ignore redirects from the server
     if (!checkIfDone(strToMap(args.redirectUrl.split("?", 2)[1]), wantedParameters)) {
 	chrome.notifications.create(
 	    "semperVideoError",
@@ -143,6 +144,7 @@ function onBeforeRedirectHandler(args) {
 	    },
 	    function(id){}
 	);
+    }
     }
 }
 
