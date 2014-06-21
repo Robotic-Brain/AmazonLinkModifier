@@ -23,7 +23,7 @@
  * This array contains all the needed parameters
  */
 var wantedParameters = {
-    "tag": "sempervideo-21"
+    "tag": "sempervideo-24"
 };
 
 /**
@@ -105,8 +105,9 @@ function checkRedirection(url) {
 }
 
 /**
- * Register the event handler
+ * Register the event handlers
  */
+var filter = {urls: ["<all_urls>"]};   /* urls already filtered by manifest.json */
 chrome.webRequest.onBeforeRequest.addListener(
     function(args) {
 	var result = checkRedirection(args.url);
@@ -114,6 +115,13 @@ chrome.webRequest.onBeforeRequest.addListener(
 	    return {redirectUrl: result};
 	}
     },
-    {urls: ["<all_urls>"]},   /* urls already filtered by manifest.json */
+    filter,
     ["blocking"]
+);
+
+chrome.webRequest.onErrorOccurred.addListener(
+    function(e) {
+	console.error(e);
+    },
+    filter
 );
