@@ -104,26 +104,34 @@ function checkRedirection(url) {
     return false;
 }
 
-/**
- * Register the event handlers
- */
-var filter = {urls: ["*://*/*"]};   /* urls already filtered by manifest.json */
-chrome.webRequest.onBeforeRequest.addListener(
-    function(args) {
-	var result = checkRedirection(args.url);
-	if (result !== false) {
-	    return {redirectUrl: result};
-	}
-    },
-    filter,
-    ["blocking"]
-);
+/*******************************************
+ *
+ * Event Handlers
+ *
+ *******************************************/
 
 /**
- * Notify the user on extension conflicts
+ * Handler function for onBeforeRequest event
+ *
+ * this function does the actual work of the
+ * extension and causes a redirect if necessary
  */
-chrome.webRequest.onErrorOccurred.addListener(
-    function(err) {
+function onBeforeRequestHandler(args) {
+    var result = checkRedirection(args.url);
+    if (result !== false) {
+	return {redirectUrl: result};
+    }
+}
+
+/**
+ * Handler function for onBeforeRedirect event
+ *
+ * this is only a convenience function to detect extension conflicts
+ * if a redirect occured but the new target does not contain our parameters
+ * some other mechanism must have overwriten our redirect
+ */
+function onBeforeRedirectHandler(args) {
+    if (!checkIfDone(strToMap(args.redirectUrl.split("?", 2)[1]), wantedParameters)) {
 	chrome.notifications.create(
 	    "semperVideoError",
 	    {
@@ -135,6 +143,23 @@ chrome.webRequest.onErrorOccurred.addListener(
 	    },
 	    function(id){}
 	);
-    },
+    }
+}
+
+/**
+ * Register the event handlers
+ */
+var filter = {urls: ["*://*/*"]};   /* urls already filtered by manifest.json */
+chrome.webRequest.onBeforeRequest.addListener(
+    onBeforeRequestHandler,
+    filter,
+    ["blocking"]
+);
+
+/**
+ * Notify the user on extension conflicts
+ */
+chrome.webRequest.onBeforeRedirect.addListener(
+    onBeforeRedirectHandler,
     filter
 );
