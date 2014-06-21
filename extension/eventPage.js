@@ -128,6 +128,7 @@ chrome.webRequest.onErrorOccurred.addListener(
 	    "semperVideoError",
 	    {
 		"type": "basic",
+		"priority": 2,
 		"title": chrome.i18n.getMessage("notificationTitle"),
 		"message": chrome.i18n.getMessage("notificationMessage"),
 		"iconUrl": "icons/klappe128.png"
@@ -136,13 +137,4 @@ chrome.webRequest.onErrorOccurred.addListener(
 	);
     },
     filter
-);
-
-/**
- * Clear our Notification when done
- */
-chrome.notifications.onClosed.addListener(
-    function(id, byUser){
-	chrome.notifications.clear(id, function(cleared){});
-    }
 );
