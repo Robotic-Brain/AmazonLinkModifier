@@ -132,19 +132,19 @@ function onBeforeRequestHandler(args) {
  */
 function onBeforeRedirectHandler(args) {
     if (args.statusCode < 0) {    // ignore redirects from the server
-    if (!checkIfDone(strToMap(args.redirectUrl.split("?", 2)[1]), wantedParameters)) {
-	chrome.notifications.create(
-	    "semperVideoError",
-	    {
-		"type": "basic",
-		"priority": 2,
-		"title": chrome.i18n.getMessage("notificationTitle"),
-		"message": chrome.i18n.getMessage("notificationMessage"),
-		"iconUrl": "icons/klappe128.png"
-	    },
-	    function(id){}
-	);
-    }
+	if (!checkIfDone(strToMap(args.redirectUrl.split("?", 2)[1]), wantedParameters)) {
+	    chrome.notifications.create(
+		"semperVideoError",
+		{
+		    "type": "basic",
+		    "priority": 2,
+		    "title": chrome.i18n.getMessage("notificationTitle"),
+		    "message": chrome.i18n.getMessage("notificationMessage"),
+		    "iconUrl": "icons/klappe128.png"
+		},
+		function(id){}
+	    );
+	}
     }
 }
 
