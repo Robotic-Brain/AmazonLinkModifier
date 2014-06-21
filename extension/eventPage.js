@@ -140,7 +140,7 @@ function onBeforeRedirectHandler(args) {
                     "priority": 2,
                     "title": chrome.i18n.getMessage("notificationTitle"),
                     "message": chrome.i18n.getMessage("notificationMessage"),
-                    "iconUrl": "icons/klappe128.png"
+                    "iconUrl": "icons/klappe128-warn.png"
                 },
                 function(id){}
             );
