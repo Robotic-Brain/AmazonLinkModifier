@@ -23,7 +23,7 @@
  * This array contains all the needed parameters
  */
 var wantedParameters = {
-    "tag": "sempervideo-24"
+    "tag": "sempervideo-21"
 };
 
 /**
