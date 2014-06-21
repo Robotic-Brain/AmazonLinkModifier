@@ -9,6 +9,10 @@
     
     "default_locale": "en",
     
+    "icons": {
+	"128": "icons/klappe128.png"
+    },
+    
     "permissions": [
 	"webRequest",
 	"webRequestBlocking",
