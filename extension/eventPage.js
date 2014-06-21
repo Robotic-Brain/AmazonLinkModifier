@@ -105,8 +105,9 @@ function checkRedirection(url) {
 }
 
 /**
- * Register the event handler
+ * Register the event handlers
  */
+var filter = {urls: ["<all_urls>"]};   /* urls already filtered by manifest.json */
 chrome.webRequest.onBeforeRequest.addListener(
     function(args) {
 	var result = checkRedirection(args.url);
@@ -114,6 +115,26 @@ chrome.webRequest.onBeforeRequest.addListener(
 	    return {redirectUrl: result};
 	}
     },
-    {urls: ["<all_urls>"]},   /* urls already filtered by manifest.json */
+    filter,
     ["blocking"]
+);
+
+/**
+ * Notify the user on extension conflicts
+ */
+chrome.webRequest.onErrorOccurred.addListener(
+    function(err) {
+	chrome.notifications.create(
+	    "semperVideoError",
+	    {
+		"type": "basic",
+		"priority": 2,
+		"title": chrome.i18n.getMessage("notificationTitle"),
+		"message": chrome.i18n.getMessage("notificationMessage"),
+		"iconUrl": "icons/klappe128.png"
+	    },
+	    function(id){}
+	);
+    },
+    filter
 );
