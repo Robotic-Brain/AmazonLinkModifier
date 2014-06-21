@@ -121,7 +121,7 @@ chrome.webRequest.onBeforeRequest.addListener(
 
 chrome.webRequest.onErrorOccurred.addListener(
     function(e) {
-	console.error(e);
+	console.log(e);
     },
     filter
 );
