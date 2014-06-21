@@ -1,5 +1,6 @@
 {
     "manifest_version": 2,
+    "minimum_chrome_version": "17",
     "version": "0.0.1",
     
     "name": "__MSG_extName__",
