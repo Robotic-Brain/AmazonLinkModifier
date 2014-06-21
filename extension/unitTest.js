@@ -30,23 +30,23 @@
  */
 function arrCmp(lh, rh) {
     if ((typeof lh) !== (typeof rh)) {
-	return false;
+        return false;
     }
     if (lh === rh) {
-	return true;
+        return true;
     }
     if ((typeof lh) === "object") {
-	for (var key in lh) {
-	    if (!arrCmp(lh[key], rh[key])) {
-		return false;
-	    }
-	}
-	for (var key in rh) {
-	    if (!arrCmp(lh[key], rh[key])) {
-		return false;
-	    }
-	}
-	return true;
+        for (var key in lh) {
+            if (!arrCmp(lh[key], rh[key])) {
+                return false;
+            }
+        }
+        for (var key in rh) {
+            if (!arrCmp(lh[key], rh[key])) {
+                return false;
+            }
+        }
+        return true;
     }
     return false;
 }
@@ -60,19 +60,19 @@ function arrCmp(lh, rh) {
 function assert(actual, expect) {
     var trace = (new Error()).stack;
     if ((typeof actual) !== (typeof expect)) {
-	console.warn("Assertion type mismatch!\n\tStack: " + trace);
-	console.warn("\tActual: ");
-	console.warn(typeof actual);
-	console.warn("\tExpected: ");
-	console.warn(typeof expect);
+        console.warn("Assertion type mismatch!\n\tStack: " + trace);
+        console.warn("\tActual: ");
+        console.warn(typeof actual);
+        console.warn("\tExpected: ");
+        console.warn(typeof expect);
     } else if(!arrCmp(actual, expect)) {
-	console.error("Assertion failed:\n\tStack: " + trace);
-	console.warn("\tActual: ");
-	console.warn(actual);
-	console.warn("\tExpected: ");
-	console.warn(expect);
+        console.error("Assertion failed:\n\tStack: " + trace);
+        console.warn("\tActual: ");
+        console.warn(actual);
+        console.warn("\tExpected: ");
+        console.warn(expect);
     } else {
-	console.info("Assert Passed.");
+        console.info("Assert Passed.");
     }
 }
 
@@ -112,12 +112,12 @@ function TestMapToStr() {
 
 function TestCheckIfDone() {
     var wanted = {
-	"test": "lol",
-	"foo": "bar"
+        "test": "lol",
+        "foo": "bar"
     };
     var params = {
-	"test": "lol",
-	"foo": "bar"
+        "test": "lol",
+        "foo": "bar"
     };
     assert(checkIfDone(params, wanted), true);
     wanted["extra"] = "new";
@@ -126,28 +126,28 @@ function TestCheckIfDone() {
 
 function TestCheckRedirection() {
     var testData = [
-	["http://www.amazon.de/", "http://www.amazon.de/?tag=sempervideo-21"],
-	["https://www.amazon.de/", "https://www.amazon.de/?tag=sempervideo-21"],
-	["http://www.amazon.com/", "http://www.amazon.com/?tag=sempervideo-21"],
-	["https://www.amazon.com/", "https://www.amazon.com/?tag=sempervideo-21"],
-	
-	["http://www.amazon.de/test", "http://www.amazon.de/test?tag=sempervideo-21"],
-	["https://www.amazon.de/test", "https://www.amazon.de/test?tag=sempervideo-21"],
-	["http://www.amazon.com/test", "http://www.amazon.com/test?tag=sempervideo-21"],
-	["https://www.amazon.com/test", "https://www.amazon.com/test?tag=sempervideo-21"],
-	
-	["http://www.amazon.de/blub?tag=false", "http://www.amazon.de/blub?tag=sempervideo-21"],
-	["https://www.amazon.de/blub?tag=false", "https://www.amazon.de/blub?tag=sempervideo-21"],
-	["http://www.amazon.com/blub?tag=false", "http://www.amazon.com/blub?tag=sempervideo-21"],
-	["https://www.amazon.com/blub?tag=false", "https://www.amazon.com/blub?tag=sempervideo-21"],
-
-	["http://www.amazon.de/blub?something=fo&tag=false", "http://www.amazon.de/blub?something=fo&tag=sempervideo-21"],
-	["https://www.amazon.de/blub?something=fo&tag=false", "https://www.amazon.de/blub?something=fo&tag=sempervideo-21"],
-	["http://www.amazon.com/blub?something=fo&tag=false", "http://www.amazon.com/blub?something=fo&tag=sempervideo-21"],
-	["https://www.amazon.com/blub?something=fo&tag=false", "https://www.amazon.com/blub?something=fo&tag=sempervideo-21"],
+        ["http://www.amazon.de/", "http://www.amazon.de/?tag=sempervideo-21"],
+        ["https://www.amazon.de/", "https://www.amazon.de/?tag=sempervideo-21"],
+        ["http://www.amazon.com/", "http://www.amazon.com/?tag=sempervideo-21"],
+        ["https://www.amazon.com/", "https://www.amazon.com/?tag=sempervideo-21"],
+        
+        ["http://www.amazon.de/test", "http://www.amazon.de/test?tag=sempervideo-21"],
+        ["https://www.amazon.de/test", "https://www.amazon.de/test?tag=sempervideo-21"],
+        ["http://www.amazon.com/test", "http://www.amazon.com/test?tag=sempervideo-21"],
+        ["https://www.amazon.com/test", "https://www.amazon.com/test?tag=sempervideo-21"],
+        
+        ["http://www.amazon.de/blub?tag=false", "http://www.amazon.de/blub?tag=sempervideo-21"],
+        ["https://www.amazon.de/blub?tag=false", "https://www.amazon.de/blub?tag=sempervideo-21"],
+        ["http://www.amazon.com/blub?tag=false", "http://www.amazon.com/blub?tag=sempervideo-21"],
+        ["https://www.amazon.com/blub?tag=false", "https://www.amazon.com/blub?tag=sempervideo-21"],
+        
+        ["http://www.amazon.de/blub?something=fo&tag=false", "http://www.amazon.de/blub?something=fo&tag=sempervideo-21"],
+        ["https://www.amazon.de/blub?something=fo&tag=false", "https://www.amazon.de/blub?something=fo&tag=sempervideo-21"],
+        ["http://www.amazon.com/blub?something=fo&tag=false", "http://www.amazon.com/blub?something=fo&tag=sempervideo-21"],
+        ["https://www.amazon.com/blub?something=fo&tag=false", "https://www.amazon.com/blub?something=fo&tag=sempervideo-21"],
     ];
     for (var i=0; i < testData.length; ++i) {
-	assert(checkRedirection(testData[i][0]), testData[i][1]);
+        assert(checkRedirection(testData[i][0]), testData[i][1]);
     }
 }
 

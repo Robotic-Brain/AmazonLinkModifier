@@ -1,19 +1,19 @@
 {
     "extName": {
-	"description": "Extension name.",
-	"message": "SemperVideo Amazon Addon"
+        "description": "Extension name.",
+        "message": "SemperVideo Amazon Addon"
     },
     "extDescription": {
-	"description": "Extension description.",
-	"message": "Mit dieser Erweiterung unterstützen sie SemperVideo bei jedem Einkauf auf Amazon."
+        "description": "Extension description.",
+        "message": "Mit dieser Erweiterung unterstützen sie SemperVideo bei jedem Einkauf auf Amazon."
     },
     
     "notificationTitle": {
-	"description": "Title of notification displayed to the user on redirect errors",
-	"message": "Erweiterungskonflikt"
+        "description": "Title of notification displayed to the user on redirect errors",
+        "message": "Erweiterungskonflikt"
     },
     "notificationMessage": {
-	"description": "Message of notification displayed on redirect errors",
-	"message": "SemperVideo profitiert möglicherweise nicht von Amazon käufen!"
+        "description": "Message of notification displayed on redirect errors",
+        "message": "SemperVideo profitiert möglicherweise nicht von Amazon käufen!"
     }
 }

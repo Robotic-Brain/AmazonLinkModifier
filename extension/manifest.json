@@ -11,20 +11,20 @@
     "default_locale": "en",
     
     "icons": {
-	"128": "icons/klappe128.png"
+        "128": "icons/klappe128.png"
     },
     
     "permissions": [
-	"webRequest",
-	"webRequestBlocking",
-	"notifications",
-	"*://*.amazon.com/*",
-	"*://*.amazon.de/*"
+        "webRequest",
+        "webRequestBlocking",
+        "notifications",
+        "*://*.amazon.com/*",
+        "*://*.amazon.de/*"
     ],
     "background": {
-	"persistent": true,
-	"scripts": [
-	    "eventPage.js"
-	]
+        "persistent": true,
+        "scripts": [
+            "eventPage.js"
+        ]
     }
 }

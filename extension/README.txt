@@ -14,6 +14,6 @@ the core functionality only has a minimum requirement of chrome 17+
 If you're using an old version of chrome contact <chrome-ext@roboticbrain.de>
 
 Used chrome.* APIs:
-     chrome.webRequest		(requires Chrome 17)
-     chrome.notifications	(requires Chrome 28)
-     chrome.i18n		(requires Chrome 5)
+     chrome.webRequest          (requires Chrome 17)
+     chrome.notifications       (requires Chrome 28)
+     chrome.i18n                (requires Chrome 5)

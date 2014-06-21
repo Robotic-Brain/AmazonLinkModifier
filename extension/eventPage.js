@@ -13,7 +13,7 @@
    
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+*/
 
 /* TODO: This is not actually an event page since chrome does not support it
  *       switch to declarativeWebRequest when available
@@ -35,13 +35,13 @@ var wantedParameters = {
  */
 function strToMap(params) {
     if ((typeof params) !== "string") {
-	return {};
+        return {};
     }
     var pairs = params.split("&");
     var result = {};
     for (var i=0; i < pairs.length; ++i) {
-	var kv = pairs[i].split("=");
-	result[kv[0]] = kv[1];
+        var kv = pairs[i].split("=");
+        result[kv[0]] = kv[1];
     }
     return result;
 }
@@ -57,11 +57,11 @@ function mapToStr(params) {
     var result = "";
     var first = true;
     for (var key in params) {
-	if (!first) {
-	    result += "&";
-	}
-	result += key + "=" + params[key];
-	first = false;
+        if (!first) {
+            result += "&";
+        }
+        result += key + "=" + params[key];
+        first = false;
     }
     return result;
 }
@@ -76,9 +76,9 @@ function mapToStr(params) {
  */
 function checkIfDone(params, wanted) {
     for (var key in wanted) {
-	if (params[key] !== wanted[key]) {
-	    return false;
-	}
+        if (params[key] !== wanted[key]) {
+            return false;
+        }
     }
     return true;
 }
@@ -94,11 +94,11 @@ function checkRedirection(url) {
     var urlParts = url.split("?", 2);
     var params = strToMap(urlParts[1]);
     if (!checkIfDone(params, wantedParameters)) {
-	for (var key in wantedParameters) {
-	    params[key] = wantedParameters[key];
-	}
-	var newUrl = urlParts[0] + "?" + mapToStr(params);
-	return newUrl;
+        for (var key in wantedParameters) {
+            params[key] = wantedParameters[key];
+        }
+        var newUrl = urlParts[0] + "?" + mapToStr(params);
+        return newUrl;
     }
     
     return false;
@@ -119,7 +119,7 @@ function checkRedirection(url) {
 function onBeforeRequestHandler(args) {
     var result = checkRedirection(args.url);
     if (result !== false) {
-	return {redirectUrl: result};
+        return {redirectUrl: result};
     }
 }
 
@@ -132,19 +132,19 @@ function onBeforeRequestHandler(args) {
  */
 function onBeforeRedirectHandler(args) {
     if (args.statusCode < 0) {    // ignore redirects from the server
-	if (!checkIfDone(strToMap(args.redirectUrl.split("?", 2)[1]), wantedParameters)) {
-	    chrome.notifications.create(
-		"semperVideoError",
-		{
-		    "type": "basic",
-		    "priority": 2,
-		    "title": chrome.i18n.getMessage("notificationTitle"),
-		    "message": chrome.i18n.getMessage("notificationMessage"),
-		    "iconUrl": "icons/klappe128.png"
-		},
-		function(id){}
-	    );
-	}
+        if (!checkIfDone(strToMap(args.redirectUrl.split("?", 2)[1]), wantedParameters)) {
+            chrome.notifications.create(
+                "semperVideoError",
+                {
+                    "type": "basic",
+                    "priority": 2,
+                    "title": chrome.i18n.getMessage("notificationTitle"),
+                    "message": chrome.i18n.getMessage("notificationMessage"),
+                    "iconUrl": "icons/klappe128.png"
+                },
+                function(id){}
+            );
+        }
     }
 }
 

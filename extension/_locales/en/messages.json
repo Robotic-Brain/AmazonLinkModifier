@@ -1,19 +1,19 @@
 {
     "extName": {
-	"description": "Extension name.",
-	"message": "SemperVideo Amazon Addon"
+        "description": "Extension name.",
+        "message": "SemperVideo Amazon Addon"
     },
     "extDescription": {
-	"description": "Extension description.",
-	"message": "Use this extension to support SemperVideo while browsing Amazon sites."
+        "description": "Extension description.",
+        "message": "Use this extension to support SemperVideo while browsing Amazon sites."
     },
     
     "notificationTitle": {
-	"description": "Title of notification displayed to the user on redirect errors",
-	"message": "Extension conflict"
+        "description": "Title of notification displayed to the user on redirect errors",
+        "message": "Extension conflict"
     },
     "notificationMessage": {
-	"description": "Message of notification displayed on redirect errors",
-	"message": "Amazon purchases might not be able to support SemperVideo!"
+        "description": "Message of notification displayed on redirect errors",
+        "message": "Amazon purchases might not be able to support SemperVideo!"
     }
 }
