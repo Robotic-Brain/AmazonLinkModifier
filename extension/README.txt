@@ -11,6 +11,13 @@ Features
     Displays a notification if another extension tries to set "tag"
 
 ###########################################
+# Images
+###########################################
+Sources for used images:
+ * icons/klappe128.png          modified version of http://www.sempervideo.de/klappe.png
+ * icons/klappe128-warn.png     overlay by Robotic-Brain
+
+###########################################
 # Compatibility
 ###########################################
 Although this extension was developed against chrome 28+
