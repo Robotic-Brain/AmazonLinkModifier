@@ -6,6 +6,10 @@ and released under the GPLv3. (see LICENSE.txt)
 
 Included artwork may be subject to different licenses.
 
+Features
+    Adds "tag=sempervideo-21" to all amazon URLs
+    Displays a notification if another extension tries to set "tag"
+
 ###########################################
 # Compatibility
 ###########################################
