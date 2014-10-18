@@ -6,6 +6,8 @@
     "name": "__MSG_extName__",
     "description": "__MSG_extDescription__",
     "author": "Robotic-Brain",
+    "homepage_url": "https://github.com/Robotic-Brain/AmazonLinkModifier",
+    "update_url": "https://raw.githubusercontent.com/Robotic-Brain/AmazonLinkModifier/master/update.xml",
     
     "default_locale": "en",
     
