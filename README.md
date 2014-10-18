@@ -3,13 +3,16 @@ AmazonLinkModifier
 
 This Chrome extension adds the `tag=<MY_LINK_TAG>` parameter to every Amazon URL and was originally developed for http://sempervideo.de
 
+#### Download
+[amazonLinkModifier.crx](https://github.com/Robotic-Brain/AmazonLinkModifier/raw/master/release/amazonLinkModifier_0.0.6.crx) (Configured for `sempervideo-21`)
+
 #### Features
 * Adds `tag` parameter to all Amazon URLs
 * Displays notification if parameter could not be set
 * Full localization support
 
 #### How to use it with my own tag?
-* Modify line 26 of `./extension/eventPage.js`  
+* Modify line 26 of [extension/eventPage.js](extension/eventPage.js)  
   from: `"tag": "sempervideo-21"`  
   to: `"tag": "<INSERT YOUR TAG HERE>"`
 * Change images and localization files
