@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <gupdate xmlns='http://www.google.com/update2/response' protocol='2.0'>
   <app appid='hhfcgcfjmoknjpnlkfojglkcoicabajl'>
-    <updatecheck codebase='https://github.com/Robotic-Brain/AmazonLinkModifier/raw/master/release/semperVideo_0.0.5.crx' version='0.0.5' />
+    <updatecheck codebase='https://github.com/Robotic-Brain/AmazonLinkModifier/raw/master/release/amazonLinkModifier_0.0.6.crx' version='0.0.6' />
   </app>
 </gupdate>
