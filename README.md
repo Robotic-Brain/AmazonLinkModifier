@@ -22,5 +22,5 @@ This Chrome extension adds the `tag=<MY_LINK_TAG>` parameter to every Amazon URL
 ----------------------- | ------------------------------------------------
 ./                      | General supporting files
 ./release               | Released versions supplied by update.xml file
-./extension             | Actual content, wich gets packed into .crx file
+./extension             | Actual content, which gets packed into .crx file
 ./extension/unitTest.js | Tests for extesion functionality (disabled in packed version)
